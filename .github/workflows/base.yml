@@ -1,0 +1,22 @@
+name: Puzzles HQ workflow
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  edit-manifest:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Edit Version Manifest
+        run: python versioning/main.py
+        env:
+          GITHUB_REPO: ${{ github.repository }}
+          GITHUB_REF: ${{ github.ref }}
+          GH_TOKEN: ${{ github.token }}

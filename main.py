@@ -37,7 +37,7 @@ contents = f.read()
 f.close()
 
 config = open("config.json", "r")
-cfg = json.loads(f.read())
+cfg = json.loads(config.read())
 config.close()
 
 contents = json.loads(contents)

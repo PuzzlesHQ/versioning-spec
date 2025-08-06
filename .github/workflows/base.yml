@@ -14,8 +14,10 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.13'
+      - name: Pull Versioning API
+        run: "git clone https://github.com/PuzzlesHQ/versioning-spec"
       - name: Edit Version Manifest
-        run: python versioning/main.py
+        run: python versioning-spec/main.py
         env:
           GITHUB_REPO: ${{ github.repository }}
           GITHUB_REF: ${{ github.ref }}

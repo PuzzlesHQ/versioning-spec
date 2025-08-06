@@ -20,9 +20,9 @@ The version spec to be used on some puzzle projects
 			"date": "2025/08/01T03:31:06", // The date of release formatted as {YYYY}{MM}{DD}T{HH}:{MM}:{SS} using the timezone UTC+00:00 and 24 hour time.
 			"id": "0.0.0-alpha", // Semver complient version id
 			"phase": "alpha", // phase of this release (ex: alpha, beta, release-canadate, release)
-			"maven-jitpack": "com.github.PuzzlesHQ:puzzle-loader-core:0.0.0-alpha", // Maven location on the jitpack.io maven
-			"maven-central": "dev.puzzleshq:puzzle-loader-core:0.0.0-alpha", // Maven  location on maven-central
-			"dependencies": "https://github.com/PuzzlesHQ/puzzle-loader-core/releases/download/0.0.0-alpha/dependencies.json" // Url pointing to the dependencies.json
+			"maven-jitpack": "com.github.PuzzlesHQ:puzzle-loader-core:0.0.0-alpha", // Maven location on the jitpack.io maven (optional)
+			"maven-central": "dev.puzzleshq:puzzle-loader-core:0.0.0-alpha", // Maven  location on maven-central (optional)
+			"dependencies": "https://github.com/PuzzlesHQ/puzzle-loader-core/releases/download/0.0.0-alpha/dependencies.json" // Url pointing to the dependencies.json (optional)
 		}
 	}
 }

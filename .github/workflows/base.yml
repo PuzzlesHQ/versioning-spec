@@ -16,8 +16,10 @@ jobs:
           python-version: '3.13'
       - name: Pull Versioning API
         run: "git clone https://github.com/PuzzlesHQ/versioning-spec"
+      - name: Update dirs
+        run: "copy versionsing-spec versioning"
       - name: Edit Version Manifest
-        run: python versioning-spec/main.py
+        run: python versioning/main.py
         env:
           GITHUB_REPO: ${{ github.repository }}
           GITHUB_REF: ${{ github.ref }}

@@ -17,7 +17,7 @@ jobs:
       - name: Pull Versioning API
         run: "git clone https://github.com/PuzzlesHQ/versioning-spec"
       - name: Update dirs
-        run: "cp versioning-spec versioning"
+        run: "cp -r versioning-spec versioning"
       - name: Edit Version Manifest
         run: python versioning/main.py
         env:

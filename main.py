@@ -56,6 +56,7 @@ contents["versions"][version] = {
 }
 
 if cfg["uses-maven-central"]: contents["versions"][version]["maven-central"] = cfg["maven-central-location"] + version
+if cfg["uses-maven-puzzle"]: contents["versions"][version]["maven-puzzle"] = cfg["maven-puzzle-location"] + version
 if cfg["uses-jitpack"]: contents["versions"][version]["maven-jitpack"] = cfg["jitpack-location"] + version
 if cfg["uses-gradle-dependencies-json"]: contents["versions"][version]["dependencies"] = f"{repoUrl}/releases/download/{version}/dependencies.json"
 

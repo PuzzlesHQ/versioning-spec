@@ -55,16 +55,16 @@ contents["versions"][version] = {
     "phase": phase
 }
 
-if cfg["uses-maven-central"]: contents["versions"][version]["maven-central"] = cfg["maven-central-location"] + version
-if cfg["uses-maven-puzzle"]: contents["versions"][version]["maven-puzzle"] = cfg["maven-puzzle-location"] + version
-if cfg["uses-jitpack"]: contents["versions"][version]["maven-jitpack"] = cfg["jitpack-location"] + version
-if cfg["uses-gradle-dependencies-json"]: contents["versions"][version]["dependencies"] = f"{repoUrl}/releases/download/{version}/dependencies.json"
+if "uses-maven-central" in cfg and cfg["uses-maven-central"]: contents["versions"][version]["maven-central"] = cfg["maven-central-location"] + version
+if "uses-maven-puzzle" in cfg and cfg["uses-maven-puzzle"]: contents["versions"][version]["maven-puzzle"] = cfg["maven-puzzle-location"] + version
+if "uses-jitpack" in cfg and cfg["uses-jitpack"]: contents["versions"][version]["maven-jitpack"] = cfg["jitpack-location"] + version
+if "uses-gradle-dependencies-json" in cfg and cfg["uses-gradle-dependencies-json"]: contents["versions"][version]["dependencies"] = f"{repoUrl}/releases/download/{version}/dependencies.json"
 
 f = open("versions.json", "w")
 f.write(json.dumps(contents, indent="\t"))
 f.close()
 
-if cfg["uses-gradle-dependencies-json"]:
+if "uses-gradle-dependencies-json" in cfg and cfg["uses-gradle-dependencies-json"]:
     gradle.run(task_name="mkDeps")
     subprocess.call(args=["gh", "release", "upload", version, "./dependencies.json"])
 git.commit(f"add {version} to version manifest", "versions.json")
